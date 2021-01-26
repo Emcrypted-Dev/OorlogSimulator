@@ -1,0 +1,116 @@
+main-lobby-spawn:
+  world: 'world'
+  x: 10
+  y: 50
+  z: 0
+
+scoreboard:
+  lobby:
+    title: '&6&lOORLOGSIMULATIE'
+    #Maximaal 10 lines
+    content:
+      - '&6&lSPELER:'
+      - '&7Naam: &f<naam>'
+      - '&7Rank: &f<rank>'
+      - ''
+      - '&6&lSTATS:'
+      - '&7Kills: &f<kills>'
+      - '&7Deaths: &f<deaths>'
+      - '&7Gewonnen: &f<gewonnen>'
+      - '&7Verloren: &f<verloren>'
+      - ''
+      - '&6play.closedbattle.nl'
+
+  waiting_lobby:
+    title: '&6&lOORLOGSIMULATIE'
+      - '&6&lSPELER:'
+      - '&7Naam: &f%naam%'
+      - '&7Rank: &f%rank%'
+      - ''
+      - '&6&lINFO:'
+      - '&7Team: &f%team%'
+      - '&7Game: &f%game%'
+      - '&7Spelers: &f%playersingame%&7 / &f%maxplayers%'
+      - '&7Start over: &f%starttijd%'
+      - ''
+      - '&6play.closedbattle.nl'
+
+  game:
+    title: '&a&lOorlog Simulatie'
+      - ''
+      - '&aTeam &lGroen:'
+      - '  &f%groenteam%'
+      - ''
+      - '&6Team &lOranje:'
+      - '  &f%oranjeteam%'
+      - ''
+      - '&6Speel duur:'
+      - '  &f%speelduur%'
+      - ''
+      - '&6play.closedbattle.nl'
+
+inventory: (dit krijg je in de waitingroom zodra je een potje gejoind bent)
+  team kiezen:
+    Team Groen:
+      Naam: '&aGroen'
+      Lore:
+        - '&aJoin team groen'
+      Command:
+        - os setteam {player} Groen
+    Team Oranje:
+      Naam: '&6Oranje'
+      Lore:
+        - '&6Join team Oranje'
+      Command:
+        - os setteam {player} Oranje
+
+
+
+selector: (de item moet een compass zijn die je in je inv hebt!) (dit heb je in de os hub) [je moet ook de slot kunnen aanpassen waar je hem in je inv kan hebben!]
+  OS1:
+    naam: '&6OS1'
+    map: 'OS1' (dit is de map die je dan joint als je er op klikt)
+    lore:
+      - '&7Klik om te joinen!'
+      - ' '
+      - '&7Spelers: &b(spelers)&7/30'  (spelers die op dat moment in die map zitten)
+      - '   '
+      - '&7Status: (status)' (dit is bijv de status &cRestarten of &cBezig of &aOpen)
+    block: emerald_block
+  OS2:
+    naam: '&6OS2'
+    map: 'OS2' (dit is de map die je dan joint als je er op klikt)
+    lore:
+      - '&7Klik om te joinen!'
+      - ' '
+      - '&7Spelers: &b(spelers)&7/30'  (spelers die op dat moment in die map zitten)
+      - '   '
+      - '&7Status: (status)'
+    #Block id, dus het nummer
+    block: emerald_block
+
+Deathmessage:
+  - '(team) (player) &7is dood gegaan!'
+# (de eerste is als iemand dood is de 2de is als diegene in de lobby zit en de 3de is als je in een potje zit)
+chat message:
+  dead:
+    - "&8[DOOD] &f<team> <rank> <player>: <message>"
+  waiting:
+    - '<rank> <player>: <message>'
+  playing:
+    - '<team> <rank> <player>: <message>'
+
+joinmessage:
+  - '&7<player> is de server gejoind'
+
+#Blokken die spelers plaatsen tijdens een war worden automatisch na deze tijd weggehaald (in seconden)
+despawn-rate: 20 seconden
+
+#Dit is voor in de lobby als je een potje gejoint bent en nog een team moet kiezen (in seconden)
+start-tijd: 30 seconden
+
+#De duur van de simulatie (in minuten)
+tijdsduur: 30
+
+tracker:
+- '&aCompass: &e(player), (blokken) &aafstand!'   (player is degene die het dichts bij is en blokken is wat de afstand is tussen hun) (ingame krijg je dus ook een tracker!)

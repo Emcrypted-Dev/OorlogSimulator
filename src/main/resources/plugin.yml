@@ -1,0 +1,6 @@
+name: OorlogSimulator
+version: ${project.version}
+main: nl.emcrypted.oorlogsimulator.OorlogSimulator
+commands:
+  oorlog:
+
